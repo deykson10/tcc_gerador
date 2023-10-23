@@ -1,23 +1,36 @@
-
 let sliderElement = document.querySelector("#slider");
-let buttonElent = document.querySelector("#button");
+let buttonElement = document.querySelector("#button");
 
-let sizepassaword = document.querySelector("#valor");
-let passaword = document.querySelector("#passaword");
+let sizePassword = document.querySelector("#valor");
+let password = document.querySelector("#password");
 
-let containerPassaword = document.querySelector("container-passaword");
+let containerPassword = document.querySelector("#container-password");
 
-let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKMNOPQRSTUVWXY0123456789!@";
-let novaSenha = "";
+let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@';
+let novaSenha = '';
 
-sizepassaword.innerHTML = sliderElement.value;
+sizePassword.innerHTML = sliderElement.value;
 
-slider.oniput = function(){
-    sizepassaword.innerHTML = this.value;
+slider.oninput = function() {
+  sizePassword.innerHTML = this.value;
 }
 
-function generatepassaword(){
 
-    let pass = "b!";
-    for()
+function generatePassword(){
+  
+
+  let pass = "";
+
+  for(let i = 0, n = charset.length; i < sliderElement.value; ++i){
+    pass += charset.charAt(Math.floor(Math.random() * n));
+  }
+  containerPassword.classList.remove("hide")
+  password.innerHTML = pass;
+  novaSenha = pass;
 }
+
+function copyPasswor(){
+  alert("Senha copiada com sucesso!")
+  navigator.clipboard.writeText(novaSenha);
+}
+
